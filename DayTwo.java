@@ -11,6 +11,10 @@ public class DayTwo {
     static final int LOSE_SCORE = 0;
     static final int DRAW_SCORE = 3;
 
+    static final int ROCK_SCORE = 1;
+    static final int PAPER_SCORE = 2;
+    static final int SCISSORS_SCORE = 3;
+
     public static void main(String[] args) {
         try {
             FileReader fr = new FileReader(INPUT);
@@ -20,52 +24,47 @@ public class DayTwo {
             while ((currentLine = br.readLine()) != null) {
                 round = currentLine.split(" ");
 
-                switch (round[1]) {
-                    case "X":
-                        totalScore++;
-                        
-                        switch (round[0]) {
-                            case "A":
-                                totalScore += DRAW_SCORE;
-                                break;
-                            case "B":
-                                totalScore += LOSE_SCORE;
-                                break;
-                            default:
-                                totalScore += WIN_SCORE;
+                switch (round[0]) {
+                    case "A":
+                        switch (round[1]) {
+	            	        case "X":
+	            	            totalScore += (LOSE_SCORE + SCISSORS_SCORE);
+	            	            break;
+	            	        case "Y":
+	            	            totalScore += (DRAW_SCORE + ROCK_SCORE);
+	            	            break;
+	            	        default:
+	            	            totalScore += (WIN_SCORE + PAPER_SCORE);
                         }
 
-                        break;
-                    case "Y":
-                        totalScore += 2;
                         
-                        switch (round[0]) {
-                            case "A":
-                                totalScore += WIN_SCORE;
-                                break;
-                            case "B":
-                                totalScore += DRAW_SCORE;
-                                break;
-                            case "C":
-                                totalScore += LOSE_SCORE;
-                        }
+                        break;
+                    case "B":
+                        switch (round[1]) {
+	            	        case "X":
+	            	            totalScore += (LOSE_SCORE + ROCK_SCORE);
+	            	            break;
+	            	        case "Y":
+	            	            totalScore += (DRAW_SCORE + PAPER_SCORE);
+	            	            break;
+	            	        default:
+	            	            totalScore += (WIN_SCORE + SCISSORS_SCORE);
+                	}
 
                         break;
                     default:
-                        totalScore += 3;
-                        
-                        switch (round[0]) {
-                            case "A":
-                                totalScore += LOSE_SCORE;
-                                break;
-                            case "B":
-                                totalScore += WIN_SCORE;
-                                break;
-                            default:
-                                totalScore += DRAW_SCORE;
-                        }
-                }
+                        switch (round[1]) {
+	            	        case "X":
+	            	            totalScore += (LOSE_SCORE + PAPER_SCORE);
+	            	            break;
+	            	        case "Y":
+	            	            totalScore += (DRAW_SCORE + SCISSORS_SCORE);
+	            	            break;
+	            	        default:
+	            	            totalScore += (WIN_SCORE + ROCK_SCORE);
+                	}
 
+                }
             }
 
             System.out.println("Final score: " + String.valueOf(totalScore));
