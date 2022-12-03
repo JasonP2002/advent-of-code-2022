@@ -1,22 +1,40 @@
 INPUT = "day-three-input.txt"
 priority_sum = 0
-found = False
+i = 0
 
-for line in open(INPUT):
+elfone = ""
+elftwo = ""
+elfthree = ""
+
+lines = open(INPUT).readlines()
+
+while i < len(lines):
+    elfone = [char for char in lines[i]]
+    elftwo = [char for char in lines[i+1]]
+    elfthree = [char for char in lines[i+2]]
+
+    elfone.remove('\n')
+    elftwo.remove('\n')
+    if(elfthree[len(elfthree)-1] == '\n'):
+        elfthree.remove('\n')
+    
+    i = i + 3
     found = False
-    arr = [char for char in line]
-    for x in range(len(arr)//2):
-        if (found == False):
-            for y in range(len(arr)//2, len(arr)):
+    for x in range(len(elfone)):
 
-                if (arr[x] == arr[y]):
-                    found = True
-                    if (arr[x].isupper()):
-                        priority_sum += (ord(arr[x]) - 38)
-                    else:
-                        priority_sum += (ord(arr[x]) - 96)
-                    break
-        else:
-            break
+        if  (found != True):
+            for y in range(len(elftwo)):
+
+                if (found != True):
+                    if (elfone[x] == elftwo[y]):
+                        for z in range(len(elfthree)):
+
+                            if (elfone[x] == elfthree[z]):
+                                if (elfone[x].isupper()):
+                                    priority_sum += (ord(elfone[x]) - 38)
+                                else:
+                                    priority_sum += (ord(elfone[x]) - 96)
+                                found = True
+                                break
 
 print(priority_sum)
