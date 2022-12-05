@@ -6,4 +6,5 @@ Day One: [Calorie Counting](https://github.com/JasonP2002/advent-of-code-2022/bl
 Day Two: [Rock Paper Scissors](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayTwo.java)  
 Day Three: [Rucksack Reorganization](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayThree.py)  
 Day Four: [Camp Cleanup](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayFour.py)  
+Day Five: [Supply Stacks](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayFive.py)  
   

@@ -13,10 +13,13 @@ stacks = [one, two, three, four, five, six, seven, eight, nine]
 
 for l in open(INPUT):
     move = l.strip().split(" ")
+    temp = []
 
     if (move[0] == "move"):
         for x in range(int(move[1])):
-            stacks[int(move[5]) - 1].append(stacks[int(move[3]) - 1].pop())
+            temp.append(stacks[int(move[3]) - 1].pop())
+        for x in range(len(temp)):
+            stacks[int(move[5]) - 1].append(temp.pop())
 
 for x in range(len(stacks)):
     print(stacks[x].pop())
