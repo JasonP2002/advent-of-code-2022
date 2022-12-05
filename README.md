@@ -2,9 +2,9 @@
 
 Advent of Code solutions for 2022
 
-Day One: [Calorie Counting](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayOne.java)  
-Day Two: [Rock Paper Scissors](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayTwo.java)  
-Day Three: [Rucksack Reorganization](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayThree.py)  
-Day Four: [Camp Cleanup](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayFour.py)  
-Day Five: [Supply Stacks](https://github.com/JasonP2002/advent-of-code-2022/blob/main/DayFive.py)  
+Day One: [Calorie Counting](https://github.com/JasonP2002/advent-of-code-2022/tree/main/1)  
+Day Two: [Rock Paper Scissors](https://github.com/JasonP2002/advent-of-code-2022/tree/main/2)  
+Day Three: [Rucksack Reorganization](https://github.com/JasonP2002/advent-of-code-2022/tree/main/3)
+Day Four: [Camp Cleanup](https://github.com/JasonP2002/advent-of-code-2022/tree/main/4)  
+Day Five: [Supply Stacks](https://github.com/JasonP2002/advent-of-code-2022/tree/main/5)  
   
