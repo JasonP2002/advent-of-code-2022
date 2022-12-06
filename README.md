@@ -7,5 +7,5 @@ Day Two: [Rock Paper Scissors](https://github.com/JasonP2002/advent-of-code-2022
 Day Three: [Rucksack Reorganization](https://github.com/JasonP2002/advent-of-code-2022/tree/main/3)
 Day Four: [Camp Cleanup](https://github.com/JasonP2002/advent-of-code-2022/tree/main/4)  
 Day Five: [Supply Stacks](https://github.com/JasonP2002/advent-of-code-2022/tree/main/5)  
-Day Six: [Tuning Trouble]()
+Day Six: [Tuning Trouble](https://github.com/JasonP2002/advent-of-code-2022/tree/main/6)
   
