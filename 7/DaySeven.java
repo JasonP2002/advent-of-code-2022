@@ -7,20 +7,38 @@ public class DaySeven {
     static CommandTree treeStructure = new CommandTree(null, "/", 0);
     static int dirTotal = 0;
     
+    static final int TOTAL_SPACE = 70000000;
+    static final int SPACE_REQUIRED = 30000000;
+    static int freeSpace = 0;
+    static int spaceToFree = 0;
+    static int minDirSpace = TOTAL_SPACE;
+    
     public static void main(String[] args) {
         try {
             FileReader fr = new FileReader(INPUT);
             BufferedReader br = new BufferedReader(fr);
             String currentLine;
 
+            //Build Tree
             while((currentLine = br.readLine()) != null) {
                 buildTree(currentLine);
             }
-
             root();
             printTree(treeStructure, "");
+            
+            //Part One
             int test = sumDirs(treeStructure);
-            System.out.println(String.valueOf(dirTotal));
+            System.out.println("Part One: " + String.valueOf(dirTotal));
+            
+            //Part Two
+            int spaceTaken = sumAllDirs(treeStructure);
+            freeSpace = TOTAL_SPACE - spaceTaken;
+            spaceToFree = SPACE_REQUIRED - freeSpace;
+            int testtwo = findMinDirSpace(treeStructure);
+            System.out.println("Part Two: " + String.valueOf(minDirSpace));
+            
+            br.close();
+            fr.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,32 +81,54 @@ public class DaySeven {
     }
 
     public static void printTree(CommandTree tree, String indent) {
-    	String type = "(dir)";
+    	String output = indent + "- " + tree.name + " (dir)";
     	if (tree.size != 0) {
-    		type = "(file, size=" + String.valueOf(tree.size) + ")";
+    		output = indent + "- " + tree.name + " (file, size=" + String.valueOf(tree.size) + ")";
     	}
-    	System.out.println(indent + "- " + tree.name + " " + type);
+    	System.out.println(output);
     	for (int i = 0; i < tree.children.size(); i++) {
     		printTree(tree.children.get(i), indent+" ");
         }
     }
     
+    //Part One
     public static int sumDirs(CommandTree t) {
-    	int childTotal = 0;
-    	
     	if (t.size != 0) { //File
     		return t.size;
     	}
     	
     	//Dir
+    	int childTotal = 0;
 	    for (int i = 0; i < t.children.size(); i++) {
 	    	childTotal += sumDirs(t.children.get(i));
 	    }
-	    	
 	    if (childTotal <= 100000) {
 	    	dirTotal += childTotal;
 	    }
+    	return childTotal;
+    }
+    
+    //Part Two
+    public static int sumAllDirs(CommandTree t) {
+    	int total = 0;
+    	for (int i = 0; i < t.children.size(); i++) {
+    		total += sumAllDirs(t.children.get(i));
+    	}
+    	return t.size + total;
+    }
+    public static int findMinDirSpace(CommandTree t) {
+    	if (t.size != 0) { //File
+    		return t.size;
+    	}
     	
+    	//Dir
+    	int childTotal = 0;
+	    for (int i = 0; i < t.children.size(); i++) {
+	    	childTotal += findMinDirSpace(t.children.get(i));
+	    }
+	    if (childTotal >= spaceToFree && childTotal < minDirSpace) {
+	    	minDirSpace = childTotal;
+	    }
     	return childTotal;
     }
     
